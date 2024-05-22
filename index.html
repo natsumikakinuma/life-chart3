@@ -223,6 +223,17 @@
         window.onload = function () {
             const ctx = document.getElementById('lifePlanChart').getContext('2d');
             window.lifePlanChart = new Chart(ctx, config);
+
+            // ローカルストレージからフィルターの入力値を復元
+            const savedAgeMin = localStorage.getItem('ageMin');
+            const savedAgeMax = localStorage.getItem('ageMax');
+            if (savedAgeMin !== null && savedAgeMax !== null) {
+                ageMin = parseInt(savedAgeMin);
+                ageMax = parseInt(savedAgeMax);
+                $('#age_min_input').val(ageMin);
+                $('#age_max_input').val(ageMax);
+            }
+
             updateChart();
             updateTable();
         };
@@ -234,6 +245,8 @@
                 alert('有効な年齢範囲を入力してください。');
                 return;
             }
+            localStorage.setItem('ageMin', ageMin);
+            localStorage.setItem('ageMax', ageMax);
             updateChart();
             updateTable();
         });
