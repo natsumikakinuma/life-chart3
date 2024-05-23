@@ -11,8 +11,11 @@ body {
 h1 {
     text-align: center;
     color: #92977E;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 55px;
+    /* 文字サイズを24pxに設定 */
+    font-family: 'Dancing Script', cursive;
 }
 
 .tabs {
